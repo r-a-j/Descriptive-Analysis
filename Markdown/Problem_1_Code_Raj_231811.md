@@ -556,8 +556,10 @@ new_df = pd.DataFrame(columns=["2001", "2021", "Region"])
 new_df["2001"] = np.array(data_from_year_2001[col_name])
 new_df["2021"] = np.array(data_2021_filtered[col_name])
 new_df["Region"] = np.array(data_from_year_2001["Region"])
+new_df["Country.Name"] = np.array(data_from_year_2001["Country.Name"])
 cd = sns.scatterplot(x="2001", y="2021", data=new_df, hue="Region")
-#plt.plot([0, 100], [0, 100], ls="-", c='.2')
+
+#print((new_df.sort_values('2001')).to_string())
 
 # Plotting the regression line using least squares polynomial fit
 X = new_df["2001"]
@@ -565,22 +567,24 @@ Y = new_df["2021"]
 slope, intercept = np.polyfit(X, Y, 1)
 plt.plot(X, X*slope + intercept, 'k')
 
+plt.text(144.77, 106.75, "Afghanistan", size="x-large")
+plt.text(54.91, 29.51, "Kosovo", size="x-large")
+plt.text(12.92, 10.83, "Seychelles", size="x-large")
+plt.text(99.75, 27.16, "Rawanda", size="x-large")
+plt.text(72.75, 41.29, "Haiti", size="x-large")
+
 plt.xlabel("Year 2001", fontsize=20)
 plt.ylabel("Year 2021", fontsize=20)
 plt.title("Infant Mortality Rate Both Sexes", fontsize=20)
 plt.legend(prop={'size': 18})
 plt.show()
-plt.savefig('Plots/Scatter_Infant_Mortality_Rate_Both_Sexes.pdf')
+#plt.savefig('Plots/Scatter_Infant_Mortality_Rate_Both_Sexes.pdf')
 ```
 
 
     
 ![png](output_25_0.png)
     
-
-
-
-    <Figure size 432x288 with 0 Axes>
 
 
 
@@ -592,14 +596,21 @@ new_df = pd.DataFrame(columns=["2001", "2021", "Region"])
 new_df["2001"] = np.array(data_from_year_2001[col_name])
 new_df["2021"] = np.array(data_2021_filtered[col_name])
 new_df["Region"] = np.array(data_from_year_2001["Region"])
+new_df["Country.Name"] = np.array(data_from_year_2001["Country.Name"])
 cd = sns.scatterplot(x="2001", y="2021", data=new_df, hue="Region")
-#plt.plot([0, 100], [0, 100], ls="-", c='.2')
+
+#print((new_df.sort_values('2001')).to_string())
 
 # Plotting the regression line using least squares polynomial fit
 X = new_df["2001"]
 Y = new_df["2021"]
 slope, intercept = np.polyfit(X, Y, 1)
 plt.plot(X, X*slope + intercept, 'k')
+
+# Plot some countries that shows some off/similar trends
+plt.text(45.81, 53.25, "Afghanistan", size="x-large")
+plt.text(85.96, 89.40, "Monaco", size="x-large")
+plt.text(68.63,  74.38, "Marshall Islands", size="x-large")
 
 plt.xlabel("Year 2001", fontsize=20)
 plt.ylabel("Year 2021", fontsize=20)
@@ -628,14 +639,21 @@ new_df = pd.DataFrame(columns=["2001", "2021", "Region"])
 new_df["2001"] = np.array(data_from_year_2001[col_name])
 new_df["2021"] = np.array(data_2021_filtered[col_name])
 new_df["Region"] = np.array(data_from_year_2001["Region"])
+new_df["Country.Name"] = np.array(data_from_year_2001["Country.Name"])
 cd = sns.scatterplot(x="2001", y="2021", data=new_df, hue="Region")
-#plt.plot([0, 100], [0, 100], ls="-", c='.2')
+
+#print((new_df.sort_values('2001')).to_string())
 
 # Plotting the regression line using least squares polynomial fit
 X = new_df["2001"]
 Y = new_df["2021"]
 slope, intercept = np.polyfit(X, Y, 1)
 plt.plot(X, X*slope + intercept, 'k')
+
+# Plot some countries that shows some off/similar trends
+plt.text(46.83, 54.85, "Afghanistan", size="x-large")
+plt.text(89.40, 93.40, "Monaco", size="x-large")
+plt.text(70.60, 76.76, "Marshall Islands", size="x-large")
 
 plt.xlabel("Year 2001", fontsize=20)
 plt.ylabel("Year 2021", fontsize=20)
@@ -664,14 +682,21 @@ new_df = pd.DataFrame(columns=["2001", "2021", "Region"])
 new_df["2001"] = np.array(data_from_year_2001[col_name])
 new_df["2021"] = np.array(data_2021_filtered[col_name])
 new_df["Region"] = np.array(data_from_year_2001["Region"])
+new_df["Country.Name"] = np.array(data_from_year_2001["Country.Name"])
 cd = sns.scatterplot(x="2001", y="2021", data=new_df, hue="Region")
-#plt.plot([0, 100], [0, 100], ls="-", c='.2')
+
+#print((new_df.sort_values('2001')).to_string())
 
 # Plotting the regression line using least squares polynomial fit
 X = new_df["2001"]
 Y = new_df["2021"]
 slope, intercept = np.polyfit(X, Y, 1)
 plt.plot(X, X*slope + intercept, 'k')
+
+# Plot some countries that shows some off/similar trends
+plt.text(44.85,  51.73, "Afghanistan", size="x-large")
+plt.text(82.82,  85.55, "Monaco", size="x-large")
+plt.text(66.76,  72.12, "Marshall Islands", size="x-large")
 
 plt.xlabel("Year 2001", fontsize=20)
 plt.ylabel("Year 2021", fontsize=20)
