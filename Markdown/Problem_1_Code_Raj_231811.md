@@ -415,7 +415,7 @@ plt.savefig('Plots/Heat_Map_Pearson_Correlation.pdf')
 
 
 ```python
-plt.figure(figsize=(10, 10), dpi=100)
+plt.figure(figsize=(10, 10), dpi=80)
 cols_to_plot = data_from_year_2021.columns[4:8].tolist()
 sns_pair = sns.pairplot(data_from_year_2021[cols_to_plot], size=4)
 sns.set_context("paper", rc={"axes.labelsize":16})
@@ -425,7 +425,7 @@ sns_pair.savefig('Plots/Pairplot_Four_Variables.pdf')
 ```
 
 
-    <Figure size 1000x1000 with 0 Axes>
+    <Figure size 800x800 with 0 Axes>
 
 
 
@@ -441,8 +441,8 @@ sns_pair.savefig('Plots/Pairplot_Four_Variables.pdf')
 # Boxplots for describing the data for subregions - Infant mortality rate for both sexes
 plt.figure(figsize=(8, 10), dpi=80)
 ax = sns.boxplot(x='Infant_Mortality_Rate_Both_Sexes', y='Subregion', data=data_from_year_2021.sort_values(by="Region"))
-plt.xlabel("Infant mortality rate of both sexes", fontsize=20)
-plt.ylabel("Subregions", fontsize=20)
+plt.xlabel("Infant mortality rate of both sexes", fontsize=30)
+plt.ylabel("Subregions", fontsize=30)
 plt.show()
 plt.savefig('Plots/Boxplot_Infant_Mortality_Rate_Both_Sexes.pdf')
 ```
@@ -462,8 +462,8 @@ plt.savefig('Plots/Boxplot_Infant_Mortality_Rate_Both_Sexes.pdf')
 # Boxplots for describing the data for subregions - Life expectancy of both sexes
 plt.figure(figsize=(8, 10), dpi=80)
 ax = sns.boxplot(x='Life_Expectancy_Both_Sexes', y='Subregion', data=data_from_year_2021.sort_values(by="Region"))
-plt.xlabel("Life expectancy of both sexes", fontsize=20)
-plt.ylabel("Subregions", fontsize=20)
+plt.xlabel("Life expectancy of both sexes", fontsize=30)
+plt.ylabel("Subregions", fontsize=30)
 plt.show()
 plt.savefig('Plots/Boxplot_Life_Expectancy_Both_Sexes.pdf')
 ```
@@ -483,8 +483,8 @@ plt.savefig('Plots/Boxplot_Life_Expectancy_Both_Sexes.pdf')
 # Boxplots for describing the data for subregions - Life expectancy of males
 plt.figure(figsize=(8, 10), dpi=80)
 ax = sns.boxplot(x='Life_Expectancy_Males', y='Subregion', data=data_from_year_2021.sort_values(by="Region"))
-plt.xlabel("Life expectancy of males", fontsize=20)
-plt.ylabel("Subregions", fontsize=20)
+plt.xlabel("Life expectancy of males", fontsize=30)
+plt.ylabel("Subregions", fontsize=30)
 plt.show()
 plt.savefig('Plots/Boxplot_Life_Expectancy_Males.pdf')
 ```
@@ -504,8 +504,8 @@ plt.savefig('Plots/Boxplot_Life_Expectancy_Males.pdf')
 # Boxplots for describing the data for subregions - Life expectancy of females
 plt.figure(figsize=(8, 10), dpi=80)
 ax = sns.boxplot(x='Life_Expectancy_Females', y='Subregion', data=data_from_year_2021.sort_values(by="Region"))
-plt.xlabel("Life expectancy of females", fontsize=20)
-plt.ylabel("Subregions", fontsize=20)
+plt.xlabel("Life expectancy of females", fontsize=30)
+plt.ylabel("Subregions", fontsize=30)
 plt.show()
 plt.savefig('Plots/Boxplot_Life_Expectancy_Females.pdf')
 ```
@@ -559,7 +559,8 @@ new_df["Region"] = np.array(data_from_year_2001["Region"])
 new_df["Country.Name"] = np.array(data_from_year_2001["Country.Name"])
 cd = sns.scatterplot(x="2001", y="2021", data=new_df, hue="Region")
 
-#print((new_df.sort_values('2001')).to_string())
+# Describe the data to show the statistical analysis
+print(round(new_df.describe(), 2))
 
 # Plotting the regression line using least squares polynomial fit
 X = new_df["2001"]
@@ -567,24 +568,43 @@ Y = new_df["2021"]
 slope, intercept = np.polyfit(X, Y, 1)
 plt.plot(X, X*slope + intercept, 'k')
 
-plt.text(144.77, 106.75, "Afghanistan", size="x-large")
-plt.text(54.91, 29.51, "Kosovo", size="x-large")
-plt.text(12.92, 10.83, "Seychelles", size="x-large")
-plt.text(99.75, 27.16, "Rawanda", size="x-large")
-plt.text(72.75, 41.29, "Haiti", size="x-large")
+# Print data to check the difference in values to plot text
+#print((new_df.sort_values('2001')).to_string())
+
+# Plot some countries that shows some off/similar trends
+plt.text(144.77, 106.75, "Afghanistan", size="20")
+plt.text(54.91, 29.51, "Kosovo", size="20")
+plt.text(12.92, 10.83, "Seychelles", size="20")
+plt.text(99.75, 27.16, "Rawanda", size="20")
+plt.text(72.75, 41.29, "Haiti", size="20")
 
 plt.xlabel("Year 2001", fontsize=20)
 plt.ylabel("Year 2021", fontsize=20)
 plt.title("Infant Mortality Rate Both Sexes", fontsize=20)
 plt.legend(prop={'size': 18})
 plt.show()
-#plt.savefig('Plots/Scatter_Infant_Mortality_Rate_Both_Sexes.pdf')
+plt.savefig('Plots/Scatter_Infant_Mortality_Rate_Both_Sexes.pdf')
 ```
 
+             2001    2021
+    count  221.00  221.00
+    mean    34.98   20.13
+    std     33.20   19.10
+    min      1.57    1.53
+    25%      9.04    6.38
+    50%     20.74   12.58
+    75%     54.91   29.45
+    max    144.77  106.75
+    
+
 
     
-![png](output_25_0.png)
+![png](output_25_1.png)
     
+
+
+
+    <Figure size 432x288 with 0 Axes>
 
 
 
@@ -599,7 +619,8 @@ new_df["Region"] = np.array(data_from_year_2001["Region"])
 new_df["Country.Name"] = np.array(data_from_year_2001["Country.Name"])
 cd = sns.scatterplot(x="2001", y="2021", data=new_df, hue="Region")
 
-#print((new_df.sort_values('2001')).to_string())
+# Describe the data to show the statistical analysis
+print(round(new_df.describe(), 2))
 
 # Plotting the regression line using least squares polynomial fit
 X = new_df["2001"]
@@ -607,10 +628,13 @@ Y = new_df["2021"]
 slope, intercept = np.polyfit(X, Y, 1)
 plt.plot(X, X*slope + intercept, 'k')
 
+# Print data to check the difference in values to plot text
+#print((new_df.sort_values('2001')).to_string())
+
 # Plot some countries that shows some off/similar trends
-plt.text(45.81, 53.25, "Afghanistan", size="x-large")
-plt.text(85.96, 89.40, "Monaco", size="x-large")
-plt.text(68.63,  74.38, "Marshall Islands", size="x-large")
+plt.text(45.81, 53.25, "Afghanistan", size="20")
+plt.text(85.96, 89.40, "Monaco", size="20")
+plt.text(68.63,  74.38, "Marshall Islands", size="20")
 
 plt.xlabel("Year 2001", fontsize=20)
 plt.ylabel("Year 2021", fontsize=20)
@@ -620,9 +644,20 @@ plt.show()
 plt.savefig('Plots/Scatter_Life_Expectancy_Both_Sexes.pdf')
 ```
 
+             2001    2021
+    count  221.00  221.00
+    mean    68.53   74.31
+    std      9.58    6.88
+    min     44.21   53.25
+    25%     62.03   69.80
+    50%     71.54   75.56
+    75%     75.61   79.41
+    max     85.96   89.40
+    
+
 
     
-![png](output_26_0.png)
+![png](output_26_1.png)
     
 
 
@@ -642,7 +677,8 @@ new_df["Region"] = np.array(data_from_year_2001["Region"])
 new_df["Country.Name"] = np.array(data_from_year_2001["Country.Name"])
 cd = sns.scatterplot(x="2001", y="2021", data=new_df, hue="Region")
 
-#print((new_df.sort_values('2001')).to_string())
+# Describe the data to show the statistical analysis
+print(round(new_df.describe(), 2))
 
 # Plotting the regression line using least squares polynomial fit
 X = new_df["2001"]
@@ -650,10 +686,13 @@ Y = new_df["2021"]
 slope, intercept = np.polyfit(X, Y, 1)
 plt.plot(X, X*slope + intercept, 'k')
 
+# Print data to check the difference in values to plot text
+#print((new_df.sort_values('2001')).to_string())
+
 # Plot some countries that shows some off/similar trends
-plt.text(46.83, 54.85, "Afghanistan", size="x-large")
-plt.text(89.40, 93.40, "Monaco", size="x-large")
-plt.text(70.60, 76.76, "Marshall Islands", size="x-large")
+plt.text(46.83, 54.85, "Afghanistan", size="20")
+plt.text(89.40, 93.40, "Monaco", size="20")
+plt.text(70.60, 76.76, "Marshall Islands", size="20")
 
 plt.xlabel("Year 2001", fontsize=20)
 plt.ylabel("Year 2021", fontsize=20)
@@ -663,9 +702,20 @@ plt.show()
 plt.savefig('Plots/Scatter_Life_Expectancy_Females.pdf')
 ```
 
+             2001    2021
+    count  221.00  221.00
+    mean    70.97   76.93
+    std     10.14    7.17
+    min     44.78   54.85
+    25%     63.63   72.38
+    50%     74.06   78.36
+    75%     78.29   82.22
+    max     89.40   93.40
+    
+
 
     
-![png](output_27_0.png)
+![png](output_27_1.png)
     
 
 
@@ -685,7 +735,8 @@ new_df["Region"] = np.array(data_from_year_2001["Region"])
 new_df["Country.Name"] = np.array(data_from_year_2001["Country.Name"])
 cd = sns.scatterplot(x="2001", y="2021", data=new_df, hue="Region")
 
-#print((new_df.sort_values('2001')).to_string())
+# Describe the data to show the statistical analysis
+print(round(new_df.describe(), 2))
 
 # Plotting the regression line using least squares polynomial fit
 X = new_df["2001"]
@@ -693,10 +744,13 @@ Y = new_df["2021"]
 slope, intercept = np.polyfit(X, Y, 1)
 plt.plot(X, X*slope + intercept, 'k')
 
+# Print data to check the difference in values to plot text
+#print((new_df.sort_values('2001')).to_string())
+
 # Plot some countries that shows some off/similar trends
-plt.text(44.85,  51.73, "Afghanistan", size="x-large")
-plt.text(82.82,  85.55, "Monaco", size="x-large")
-plt.text(66.76,  72.12, "Marshall Islands", size="x-large")
+plt.text(44.85,  51.73, "Afghanistan", size="20")
+plt.text(82.82,  85.55, "Monaco", size="20")
+plt.text(66.76,  72.12, "Marshall Islands", size="20")
 
 plt.xlabel("Year 2001", fontsize=20)
 plt.ylabel("Year 2021", fontsize=20)
@@ -706,9 +760,20 @@ plt.show()
 plt.savefig('Plots/Scatter_Life_Expectancy_Males.pdf')
 ```
 
+             2001    2021
+    count  221.00  221.00
+    mean    66.23   71.81
+    std      9.18    6.71
+    min     43.06   51.73
+    25%     59.64   67.65
+    50%     68.78   72.99
+    75%     73.27   76.85
+    max     82.82   85.55
+    
+
 
     
-![png](output_28_0.png)
+![png](output_28_1.png)
     
 
 
