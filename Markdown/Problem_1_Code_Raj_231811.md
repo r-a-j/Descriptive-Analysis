@@ -1,15 +1,6 @@
 ## Project - 1 
-#### (Winter Semester 2022 - 2023)
-#### Descriptive analysis of demographic data
-#### Author - Raj Anilbhai Pawar
-#### Matriculation Number - 231811
-#### Group - 17 
-
-* Raj Anilbhai Pawar
-* Amritha Sukhdev Singh Agarwal
-* Sagar Basnet
-* Muhammad Fahad
-* Siddhartha Kark
+(Winter Semester 2022 - 2023) \
+Descriptive analysis of demographic data
 
 ### 1. Describe the frequency distributions of the variables. Consider also the differences between the sexes.
 
