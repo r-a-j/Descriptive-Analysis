@@ -1,0 +1,25 @@
+{
+  "n_countries_2021": 227,
+  "n_regions": 5,
+  "n_subregions": 21,
+  "missing_2001_countries": [
+    "Libya",
+    "Puerto Rico",
+    "South Sudan",
+    "Sudan",
+    "Syria",
+    "United States"
+  ],
+  "n_matched_2001_2021": 221,
+  "correlations_2021": {
+    "le_imr_pearson": -0.9049285155803354,
+    "le_imr_spearman": -0.8928897160163107,
+    "male_female_le_pearson": 0.9709694544978238
+  },
+  "variance_decomposition_2021": {
+    "le_subregion_eta_sq": 0.6481385579859965,
+    "le_region_eta_sq": 0.5113111753868863,
+    "imr_subregion_eta_sq": 0.6420739241667701,
+    "imr_region_eta_sq": 0.5203877940862892
+  }
+}
